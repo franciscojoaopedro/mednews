@@ -12,19 +12,21 @@ const Home = () => {
   return (
     <div className='container-home'>
         <div className='content-home'>
-            <div>
+           <form className='form-post'>
+           <div className='area-input-title'>
                 <input placeholder='Titulo da news' />
             </div>
-            <div>
+            <div className='area-input-content'>
                 <textarea
                     placeholder='partilha com a comunidade o que tens pensado....'
                 />
             </div>
-           <div>
+           </form>
+           <div className='area-btn-publicar'>
             <button>Publicar</button>
            </div>
-           <div>
-            <h2>Novas mednews </h2>
+           <div className='mednew-pubs'>
+            <h2>as mednews </h2>
            </div>
            <div className='all-news'>
            {ListNews.map((element,index)=>

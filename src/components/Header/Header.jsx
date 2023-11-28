@@ -8,7 +8,7 @@ import { CgProfile } from "react-icons/cg";
 import Logo from "../../assets/Logo.svg"
 
 export const Header = () => {
-  const notificatin=7;
+  const notificatin=10;
   return (
     <header>
       <div className='container-header'>

@@ -1,16 +1,101 @@
 .container-home{
-    width: 100%;
+    width: 100vw;
     padding: 0px 15px;
 }
 
 .content-home{
+    width: 100%;
     display: flex;
     justify-content:center;
     align-items: flex-start;
     flex-direction: column;
 }
+
+
+.form-post{
+width: 100%;
+display: flex;
+justify-self: center;
+flex-wrap: wrap;
+align-items: flex-start;
+padding:10px;
+border-radius: 10px;
+margin-top: 10px;
+position: relative;
+z-index: 999;
+box-shadow: 0px 0px 10px rgba(0,0,0,.6);
+margin-bottom: 10px;
+
+}
+
+.area-input-title{
+    width: 100vw;
+   margin-top:15px ;
+}
+.area-input-title input{
+ border: none;
+ outline: none;
+ background: #03090f;
+ color:#343a40;
+ font-size:20px;
+ margin-bottom: 1rem;
+ padding: 10px;
+ width: 100%;
+ border-radius: 8px;
+ text-col
+
+}
+.area-input-content{
+    margin-top: 10px;
+    width: 100vw;
+    max-height: 150px;
+    
+}
+.area-input-content textarea{
+    border-radius: 15px;
+    width: 100%;
+    height: 100px;
+    border: none;
+    background-color: #e2e8f0;
+    color: black;
+    font-size: 14px;
+    resize: vertical;
+    outline: none;
+    overflow: auto;
+    padding: 10px;
+
+}
+
+
+.area-btn-publicar{
+    margin-top: 10px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+.area-btn-publicar button{
+    background-color: #379683;
+    color:#fff;
+    border: none;
+    font-size: 14px;
+    cursor: pointer;
+    height: 35px;
+    width: 100px;
+    border-radius: 5px;
+    transition: all 0.3s ease-in-out;
+}
+
+.mednew-pubs{
+    margin-top: 20px;
+    text-align: center;
+    margin-bottom: 10px;
+
+}
+
 .all-news{
     overflow-y: scroll;
     scroll-behavior: smooth;
-    max-height: 50vh;
+    max-height: 60vh;
+    border-radius: 8px;
+    margin-bottom: 20px;
 }

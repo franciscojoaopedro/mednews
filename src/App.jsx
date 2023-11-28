@@ -14,7 +14,7 @@ function App() {
       }
       <Outlet
       />
-     {/* {lognin&& (<Footer/>)} */}
+     {lognin&& (<Footer/>)}
     </div>
   </>
   )
