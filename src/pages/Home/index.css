@@ -36,20 +36,19 @@ margin-bottom: 10px;
  border: none;
  outline: none;
  background: #03090f;
- color:#343a40;
+ color:#fff;
  font-size:20px;
  margin-bottom: 1rem;
  padding: 10px;
  width: 100%;
  border-radius: 8px;
- text-col
+ text-transform: capitalize;
 
 }
 .area-input-content{
     margin-top: 10px;
     width: 100vw;
-    max-height: 150px;
-    
+    max-height: 150px;   
 }
 .area-input-content textarea{
     border-radius: 15px;

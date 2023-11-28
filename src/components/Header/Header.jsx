@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import "./header.css"
 // import { Container } from './styles';
@@ -6,9 +6,11 @@ import {FaSearch} from "react-icons/fa"
 import { IoIosNotifications } from "react-icons/io";
 import { CgProfile } from "react-icons/cg";
 import Logo from "../../assets/Logo.svg"
+import { NotificacaoContext } from '../../contexts/context';
 
 export const Header = () => {
-  const notificatin=10;
+  const {notificacao,setNotificacao}=useContext(NotificacaoContext)
+  const notificatin=Number(notificacao);
   return (
     <header>
       <div className='container-header'>
