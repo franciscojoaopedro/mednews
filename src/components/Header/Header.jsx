@@ -13,14 +13,14 @@ export const Header = () => {
     <header>
       <div className='container-header'>
         <nav className='container-nav'>
-        <div className='logo'>
+        <Link to={"/"} className='logo'>
             <img  src={Logo} />
-        </div>
+        </Link>
 
         <div className='content-search-and-notify'>
             <input   type='search' placeholder=' pesquisa uma news'   />
             <button type='submit'>
-                  <FaSearch size={24} color='gray'  />
+                  {/* <FaSearch size={24} color='gray'  /> */}
             </button>
             <div className='notify_update'>
               <IoIosNotifications size={24} />

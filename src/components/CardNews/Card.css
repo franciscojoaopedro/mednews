@@ -1,0 +1,8 @@
+.news{
+    padding: 15px;
+    border-radius: 8px;
+    background-color: #e2e8f0;
+    width: 400px;
+    height: fit-content;
+    margin-bottom: 10px;
+}

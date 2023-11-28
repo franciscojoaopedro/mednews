@@ -1,0 +1,16 @@
+.container-home{
+    width: 100%;
+    padding: 0px 15px;
+}
+
+.content-home{
+    display: flex;
+    justify-content:center;
+    align-items: flex-start;
+    flex-direction: column;
+}
+.all-news{
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+    max-height: 50vh;
+}

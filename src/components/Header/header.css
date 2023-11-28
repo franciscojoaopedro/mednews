@@ -1,5 +1,8 @@
 header{
+    position: relative;
+    width: 100%;
     background: #f1f5f9;
+
 }
 .container-header{
     display: flex;
