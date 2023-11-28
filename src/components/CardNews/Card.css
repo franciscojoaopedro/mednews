@@ -1,8 +1,9 @@
 .news{
+    position: relative;
     padding: 15px;
     border-radius: 8px;
     background-color: #e2e8f0;
-    width: 400px;
+    width: 100%;
     height: fit-content;
     margin-bottom: 10px;
 }
@@ -33,8 +34,11 @@ margin-bottom: 10px;
 }
 
 .content-news{
-padding: 5px;
-    max-width: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+    
 }
 
 .content-news p{
