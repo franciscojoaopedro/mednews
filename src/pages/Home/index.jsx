@@ -5,6 +5,7 @@ import { CardNews } from '../../components/CardNews/CardNews';
 import { ListNews } from './test';
 import { NotificacaoContext } from '../../contexts/context';
 import api from '../../api/api';
+import { ConvertarData } from '../../utils/tools';
 
 // import { Container } from './styles';
 ListNews
@@ -14,10 +15,9 @@ const Home = () => {
   const {setNotificacao}=useContext(NotificacaoContext)
   const [title,setTitle]=useState("")
   const [content,setContent]=useState("")
-    
   useEffect(()=>{
     async function getAllNews(){
-      let response=await api.get("http://localhost:3333/posts/index");
+      let response=await api.get("/posts/index");
      let todoPosts= await response.data.posts
       console.log(todoPosts)
        setNews(todoPosts)
@@ -27,14 +27,27 @@ const Home = () => {
     getAllNews()
   },[])
 
-  const handlePostNews=()=>{
+   const handlePostNews= async()=>{
     if(!title || !content){
       alert("os campos estão vazios")
+      return;
     }
-   console.log({
-    title,
-    content
-   })
+   try {
+    await api.post("/posts/create",{
+      title:title,
+      content:content
+    },{
+      headers:{
+        "author_id":"6558fa5857b75119dcc4330c"
+      }
+    }).then(()=>{
+      console.log("ok")
+    })
+   } catch (error) {
+    console.log({error:error,message:"ERRO AO CRIAR O POST"})
+   }
+  
+
   }
 
 
@@ -70,13 +83,25 @@ const Home = () => {
             <h2>Todas mednews </h2>
            </div>
            <div className='all-news'>
-           {news.map((element,index)=>
-           <CardNews 
-           key={index}
-           nome={"Teste"}
-           conteudo={element.content}
-           titulo={element.title}
-           />)}
+           {news.map((element,index)=>{
+              let data={
+                dia:ConvertarData(element.createdAt).dia,
+                mes:ConvertarData(element.createdAt).mes,
+                ano:ConvertarData(element.createdAt).ano,
+                hora:ConvertarData(element.createdAt).hora,
+              }
+
+              return  <CardNews 
+               key={index}
+                nome={element.author.name}
+                conteudo={element.content}
+                titulo={element.title}
+                hora={data.hora}
+                date={`${data.dia}/${data.mes}/${data.ano}`}
+               />
+           })}
+          
+        
            </div>
         </div>
         

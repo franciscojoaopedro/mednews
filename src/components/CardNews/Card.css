@@ -66,3 +66,14 @@ margin-bottom: 10px;
     vertical-align: top;
 
 }
+.TempoPost{
+    margin-top: 5px;
+    padding: 0 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.data-post{
+    font-style: italic;
+    font-weight: bold;
+}
