@@ -1,13 +1,18 @@
 header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background: #f1f5f9;
-
+  
+    
 }
 .container-header{
+    padding: 15px 20px;
     width: 100vw;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 15px 15px;
+    border-radius: 0px 0px 8px 8px;
 }
 
 .container-nav{

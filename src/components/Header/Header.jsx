@@ -9,7 +9,7 @@ import Logo from "../../assets/Logo.svg"
 import { NotificacaoContext } from '../../contexts/context';
 
 export const Header = () => {
-  const {notificacao,setNotificacao}=useContext(NotificacaoContext)
+  const {notificacao}=useContext(NotificacaoContext)
   const notificatin=Number(notificacao);
   return (
     <header>
@@ -34,9 +34,9 @@ export const Header = () => {
             </div>
         </div>
 
-        <div>
+        <Link to={"/profile"}>
           <CgProfile size={24} />
-        </div>
+        </Link>
         </nav>
         
 

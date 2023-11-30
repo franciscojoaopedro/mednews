@@ -14,6 +14,7 @@ import Error from './pages/Error'
 import ContactDetails from './routes/ContactDetails.jsx'
 import Contacto from './routes/Contacto.jsx'
 import Home from './pages/Home/index.jsx'
+import { ProfileUser } from './pages/Profile/index.jsx'
 
 // const browserHistory = createBrowserRouter([
 //   {
@@ -54,6 +55,10 @@ const router=createBrowserRouter([
       {
         path:"oldcontact",
         element:<Navigate to={"/contact"} />
+      },
+      {
+        path:"profile",
+        element:<ProfileUser/>
       }
     ]
   }
