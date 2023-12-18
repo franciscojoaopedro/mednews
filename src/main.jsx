@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState,useContext } from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
 import './global.css'
@@ -15,6 +15,8 @@ import ContactDetails from './routes/ContactDetails.jsx'
 import Contacto from './routes/Contacto.jsx'
 import Home from './pages/Home/index.jsx'
 import { ProfileUser } from './pages/Profile/index.jsx'
+import { Rootas } from './routes/AppRoutes.jsx'
+
 
 // const browserHistory = createBrowserRouter([
 //   {
@@ -39,9 +41,10 @@ import { ProfileUser } from './pages/Profile/index.jsx'
 const router=createBrowserRouter([
   {
     path:"/",
-    element:<App/>,
+    element:<SignIn/>,
     errorElement:<Error/>,
     children:[
+    
       {path:'/',element:<Home/>},
       {path:'signin',element:<SignIn/>},
       {path:'signup',element:<SignUp/>},
@@ -68,6 +71,6 @@ const router=createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-   <RouterProvider router={router} />
-  </React.StrictMode>,
+   <Rootas/>
+  </React.StrictMode>
 )

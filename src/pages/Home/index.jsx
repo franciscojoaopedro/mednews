@@ -7,8 +7,9 @@ import { NotificacaoContext } from '../../contexts/context';
 import api from '../../api/api';
 import { ConvertarData } from '../../utils/tools';
 
+
 // import { Container } from './styles';
-ListNews
+
 const Home = () => {
     
   const [news,setNews]=useState([]);
@@ -38,7 +39,7 @@ const Home = () => {
       content:content
     },{
       headers:{
-        "author_id":"6558fa5857b75119dcc4330c"
+        "author_id":"656f7bf22575b549bb3a4b58"
       }
     }).then(()=>{
       console.log("ok")
@@ -54,6 +55,7 @@ const Home = () => {
   return (
     <div className='container-home'>
         <div className='content-home'>
+            <h2>Publicar uma mednews</h2>
            <form className='form-post'>
            <div className='area-input-title'>
                 <input 

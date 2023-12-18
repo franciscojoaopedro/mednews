@@ -1,8 +1,30 @@
-
+/* 
 footer {
     background-color: #333;
     color: #fff;
     position: absolute;
+    left: 0;
+    width: 100vw;
+    bottom: 0;
+}
+
+
+
+.footer-bottom {
+    text-align: center;
+    width: 100%;
+    background-color: rgb(20, 20, 20);
+    padding: 10px;
+}
+
+.footer-bottom p {
+    margin: 0;
+} */
+
+footer {
+    background-color: #333;
+    color: #fff;
+    position: fixed;
     left: 0;
     width: 100vw;
     bottom: 0;
