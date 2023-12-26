@@ -1,12 +1,15 @@
-import React from 'react';
 
+import {FaRocket} from "react-icons/fa"
 
-// import { Container } from './styles';
-
+import "./error.css"
 const Error = () => {
-  return(
-    <div>
-        <p>Error 404!</p>
+  return (
+    <div className='Page_Error'>
+      <div className='container' >
+        <p>Error 404  (+_+)!</p>
+        <p>pagina não encontrada</p>
+        <FaRocket size={30} />
+      </div>
     </div>
   );
 }

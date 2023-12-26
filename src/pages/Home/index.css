@@ -131,8 +131,9 @@ width: 100%;
 
 display: flex;
 flex-direction: column;
-justify-self: center;
-align-items: flex-start;
+
+justify-content: center;
+align-items: center;
 padding:20px;
 border-radius: 10px;
 position: relative;
@@ -142,10 +143,14 @@ margin: 10px 0px 10px 0px;
 }
 
 .area-input-title{
-    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
    margin-top:15px ;
 }
 .area-input-title input{
+width: 100%;
  border: none;
  outline: none;
  background: #bcdbfa;
@@ -153,20 +158,23 @@ margin: 10px 0px 10px 0px;
  font-size:20px;
  margin-bottom: 1rem;
  padding: 20px;
- width: 80%;
+ width: 90%;
  border-radius: 8px;
  text-transform: capitalize;
  text-indent: 12px;
 
 }
 .area-input-content{
+    display: flex;
+    justify-content: center;
+    align-items: center;
     margin-top: 10px;
-    width: 100vw;
-    max-height: 150px;   
+    width: 100%;
+    max-height: px;   
 }
 .area-input-content textarea{
     border-radius: 15px;
-    width: 80%;
+    width: 90%;
     height: 100px;
     border: none;
     background-color: #e2e8f0;
