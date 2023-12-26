@@ -1,20 +1,19 @@
-*{
-    font-family: 'Poppins', sans-serif;
-    line-height: 1.5;
-    font-weight: 400;
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0;
-
-}
-.sigin-in{
+main{
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    background: #f1eded;
+}
+.sigin-in{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+ 
+    
 }
 .title-sigin-in{
-    width: 250px;
+    width: 500px;
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;
@@ -30,18 +29,20 @@
     flex-direction: column;
 }
 .input-area-sign-in{
-    width: 250px;
+    width: 400px;
     margin-bottom: 10px;
 }
 .input-area-sign-in input{
     border: none;
+    height: 60px;
+    padding: 8px;
     outline: none;
-    font-size: 14px;
-    color: white;
+    font-size: 20px;
+    color: #131313;
     padding: 10px;
     width: 100%;
-    border-radius: 6px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    box-shadow: 2px 2px 10px rgba(2, 2, 2, 0.5);
 
 }
 
@@ -92,8 +93,13 @@
 }
 
 .barra-de-contas hr{
+    
     width: 115px;
     margin: 0 4px;
+}
+.barra-de-contas p{
+    color: #131313;
+    margin: 0px 10px;
 }
 
 .sign-in-optional{
