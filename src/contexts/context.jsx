@@ -10,7 +10,7 @@ export const UserContext=createContext()
 export const AppContext=({children})=>{
     const [news,setNews]=useState([]);
     const [notificacao,setNotificacao]=useState(0);
-    const [userLogin,setUserLogin]=useState(null)
+    const [userLogin,setUserLogin]=useState()
     const [usuario,setUsuario]=useState(null)
 
     const [
@@ -71,42 +71,16 @@ async function LogIn(email,password){
           token:await usercredential.user.getIdToken((t)=>t)
         }
 
-        const getUserLocal=localStorage.getItem("usertoken");
-        const userToken=JSON.parse(getUserLocal)
-        if(userToken.email!==email){
-          localStorage.setItem("usertoken",JSON.stringify(user))
-          console.log("foi criado um novo token",userToken)
-          setUserLogin(userToken)
-          return;
+        const getUserLocal=localStorage.getItem("tokens");
+        const userToken=JSON.parse(getUserLocal);
+
+        if(!userToken){
+          localStorage.setItem("tokens",JSON.stringify(user))
+         return console.log("foi criado um novo token",userToken)
         }
         console.log("esse usuario já existe",userToken)
-        setUsuario()
-        return
+        setUserLogin(userToken)
       })
-       
-      /**
-      eyJhbGciOiJSUzI1NiIsImtpZCI6IjUyNmM2YTg0YWMwNjcwMDVjZTM
-      0Y2VmZjliM2EyZTA4ZTBkZDliY2MiLCJ0eXAiOiJKV1QifQ.eyJpc3Mi
-      OiJodHRwczovL3NlY3VyZXRva2VuLmdvb2dsZS5jb20vbWVkbmV3cy02OTJ
-      iZSIsImF1ZCI6Im1lZG5ld3MtNjkyYmUiLCJhdXRoX3RpbWUiOjE3MDM2MT
-      EyNjksInVzZXJfaWQiOiJDVWdTbThJOWNhT1BnNldBMGZlSlVJbE0wTnExI
-      iwic3ViIjoiQ1VnU204STljYU9QZzZXQTBmZUpVSWxNME5xMSIsImlhdCI6
-      MTcwMzYxMTI3NiwiZXhwIjoxNzAzNjE0ODc2LCJlbWFpbCI6InRlc3RlMkB
-      nbWFpbC5jb20iLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsImZpcmViYXNlIj
-      p7ImlkZW50aXRpZXMiOnsiZW1haWwiOlsidGVzdGUyQGdtYWlsLmNvbSJdf
-      Swic2lnbl9pbl9wcm92aWRlciI6InBhc3N3b3JkIn19.do49076k7Qk1bPI
-      YdsUfTA9oRmjpo0YmmPkIlpv7b9vMO4mbMsGWp_cUWNIASW6KseNNm4mTjg
-      d-T2YmXKXFOo7Nlx9JDlFbtpXv9nZapHVXbXjSDHkQQPX9HcK5VWYFdI5MY
-      1xp3L8OtBaQAVCqhKuKgLCywymZuxIa9k4drb-K9BNX9RC6Qm11RTFazviW
-      95UETsGKigBC37gayg0CrfXENGiV133PjxVDNlFGlGkFgEwApegfRa-6xsppZ0BFwa-mkASgdHkO2-nsufUPc4jQx4jT
-      3O7Q5FhDHGDskWu3YWpSUI3Fd59kDfVOpi1Rc8VV8hKDds58vJdCmUp01g
-      */
-
-
-      
-  
-      // const saveLocal=localStorage.setItem("usertoken",JSON.stringify(user))
-
         console.log("dados do loggin",user)
     })
     
@@ -150,7 +124,7 @@ async function Register(name,email,password){
     return(
         <NotificacaoContext.Provider value={{notificacao,setNotificacao}}>
                    <NewsContexts.Provider  value={{news,getAllNews}} >
-                   <UserContext.Provider value={{Postnews,userLogin,LogIn,Register}}>
+                   <UserContext.Provider value={{Postnews,userLogin,LogIn,Register,setUserLogin}}>
                    {children}
                    </UserContext.Provider >
                    </NewsContexts.Provider>

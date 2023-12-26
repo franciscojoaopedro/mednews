@@ -1,12 +1,8 @@
 import React, { useContext, useState } from 'react';
-import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
-import { auth } from '../../firebase/config';
+
 import { Link } from 'react-router-dom';
 import { UserContext } from '../../contexts/context';
 
-
-import { ToastContainer, toast } from 'react-toastify';
-// import { Container } from './styles';
 
 const SignUp = () => {
   const [password,setPassword]=useState("")

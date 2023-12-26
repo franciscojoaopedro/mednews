@@ -1,4 +1,4 @@
-import  { useState,useContext } from 'react'
+import  { useState,useContext, useEffect } from 'react'
 import {createBrowserRouter,RouterProvider,Navigate} from "react-router-dom"
 import SignIn from '../pages/SignIn'
 import SignUp from '../pages/SignUp'
@@ -14,7 +14,11 @@ import { UserContext } from '../contexts/context.jsx'
 
 
  export   function RotasGloba(){
- const {userLogin}=useContext(UserContext)
+ const {userLogin,setUserLogin}=useContext(UserContext)
+
+
+
+
 
    const AppRouter=createBrowserRouter([
        {
@@ -22,7 +26,7 @@ import { UserContext } from '../contexts/context.jsx'
          element:   <App/> ,
          errorElement:<Error/>,
          children:[
-           {path:'/',element: userLogin?  <Home/>:<Navigate to="/signin"/>},
+           {path:'/',element: userLogin? <Home/>:<Navigate to="/signin"/>},
            {path:'signin',element: userLogin? <Navigate to={"/"}/> : <SignIn/>},
            {path:'signup',element:<SignUp/>},
            {path:'contact',element:<Contacto/>},
@@ -44,6 +48,17 @@ import { UserContext } from '../contexts/context.jsx'
        }
      ])
 
+
+useEffect(()=>{
+  const getUserLocal=localStorage.getItem("tokens");
+  const userToken=JSON.parse(getUserLocal)
+  if(!userToken){
+  return    console.log("sem tokens de autorização")
+
+  }
+  setUserLogin(userToken);
+
+},[])     
      return(
       <RouterProvider router={AppRouter} />
      )
