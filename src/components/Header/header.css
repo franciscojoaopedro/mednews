@@ -78,8 +78,9 @@
 
 
 header{
-    background: #f1f5f9;
-
+    border-radius: 0px 0px 60px 60px;
+    background: #ecececc7;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0,0.7);
 }
 .container-header{
     width: 100vw;
