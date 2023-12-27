@@ -1,3 +1,4 @@
+"client"
 import React from 'react';
 
 
@@ -17,7 +18,7 @@ export const CardNews = ({nome,titulo,conteudo,date,hora}) => {
        </div>
        <div className='TempoPost'>
         <span className='data-post' >data: {`${date}`}</span> 
-        <spa className="data-post">hora: {hora}</spa>
+        <span className="data-post">hora: {hora}</span>
         </div>    
 </div>
   )

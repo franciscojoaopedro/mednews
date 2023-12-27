@@ -13,14 +13,20 @@ import { ConvertarData } from '../../utils/tools';
 const Home = () => {
     
   const {news,getAllNews}=useContext(NewsContexts)
-  const {Postnews}=useContext(UserContext)
+  const {Postnews,setAuthor}=useContext(UserContext)
   const [title,setTitle]=useState("")
   const [content,setContent]=useState("")
 
   useEffect(()=>{
+    pegarTokens()
     getAllNews()
   },[])
-
+  
+  async function pegarTokens(){
+    const getUserLocal= localStorage.getItem("tokens");
+    const userToken= await JSON.parse(getUserLocal);
+    setAuthor(userToken);
+  }
   function clearInputs(){
     setContent("");
     setTitle("");
@@ -40,9 +46,7 @@ const Home = () => {
            <div className='area-input-title'>
                 <input 
                 placeholder='Titulo da news' 
-                autoCapitalize
-                autoComplete
-                autoCorrect
+               
                 value={title}
                 onChange={(text)=>setTitle(text.target.value)}
                 />
@@ -51,9 +55,7 @@ const Home = () => {
                 <textarea
                 value={content}
                 onChange={(text)=>setContent(text.target.value)}
-                 autoCapitalize
-                 autoComplete
-                 autoCorrect
+                
                   placeholder='partilha com a comunidade o que tens pensado....'
                 />
             </div>

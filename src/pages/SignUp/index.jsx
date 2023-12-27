@@ -30,7 +30,7 @@ async function handleCreateUser(){
     <div className='sigin-in'>
     <div className='container-sigin-in'>
       <div>
-          <p>
+          <p style={{color:"InfoBackground"}} >
           Expresse gratidão pela escolha de se cadastrar na <strong>MedNews</strong>. Faça com que a pessoa se sinta valorizada desde o início!
           </p>
       </div>

@@ -17,9 +17,6 @@ import { UserContext } from '../contexts/context.jsx'
  const {userLogin,setUserLogin}=useContext(UserContext)
 
 
-
-
-
    const AppRouter=createBrowserRouter([
        {
          path:"/",
@@ -42,7 +39,7 @@ import { UserContext } from '../contexts/context.jsx'
            },
            {
              path:"profile",
-             element:<ProfileUser/>
+             element: userLogin?<ProfileUser/>: <Navigate to={"/signin"} />
            }
          ]
        }
@@ -50,13 +47,17 @@ import { UserContext } from '../contexts/context.jsx'
 
 
 useEffect(()=>{
-  const getUserLocal=localStorage.getItem("tokens");
-  const userToken=JSON.parse(getUserLocal)
-  if(!userToken){
-  return    console.log("sem tokens de autorização")
 
+  async function verificarToken(){
+    const getUserLocal=localStorage.getItem("tokens");
+    const userToken=await JSON.parse(getUserLocal)
+    if(!userToken){
+    return    console.log("sem tokens de autorização")
+  
+    }
+    setUserLogin(userToken);
   }
-  setUserLogin(userToken);
+  verificarToken();
 
 },[])     
      return(

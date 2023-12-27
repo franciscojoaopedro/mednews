@@ -19,7 +19,7 @@ const SignIn = () => {
     await LogIn(email,password)
     toast.success("Seja Bem Vindo!",{
       position: "top-right",
-      autoClose: 5000,
+      autoClose: 3000,
       hideProgressBar: false,
       closeOnClick: true,
       pauseOnHover: true,
@@ -27,7 +27,9 @@ const SignIn = () => {
       progress: undefined,
       theme: "light",
       });
-    
+      setTimeout(function() {
+        location.reload();
+      }, 4000);
      
   }
 
@@ -48,8 +50,7 @@ const SignIn = () => {
                 value={email}
                 onChange={(e)=>setEmail(e.target.value)}
                 type='email'
-                placeholder='email@gmail.com'
-                autoCapitalize
+                placeholder='exemplo@mednews.com'
                 required
                 />
                 </div>

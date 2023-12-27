@@ -1,10 +1,27 @@
-import React from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 
 // import { Container } from './styles';
 import "./index.css"
 import {CardNews} from "../../components/CardNews/CardNews"
+import { NewsContexts, UserContext } from '../../contexts/context';
 
  export const ProfileUser = () => {
+    const [user,setUser]=useState({})
+
+    async function pegarTokens(){
+        const getUserLocal=  localStorage.getItem("tokens");
+        const userToken= await JSON.parse(getUserLocal);
+        console.log(userToken)
+        setUser(userToken);
+      }
+
+    
+      useEffect(()=>{
+        pegarTokens()
+      },[])
+
+
+
   return (
     <div className='profile-user-container'>
 
@@ -14,10 +31,10 @@ import {CardNews} from "../../components/CardNews/CardNews"
                     <img  src={"https://img.freepik.com/free-psd/3d-illustration-person-with-sunglasses_23-2149436188.jpg?w=740&t=st=1701326277~exp=1701326877~hmac=be1f41df2a89aeb0a9719b6c708a6b9af0ede5136ab005d58fe772ded32caf50"} />
                 </div>
                 <div className='profile-user-descrition'>
-                <h2>Francisco João Pedro</h2>
-                <p>franciscojoaopedro1998@gmail.com</p>
+                <h2>{user.name}</h2>
+                <p>{user.email}</p>
                 <p>Luanda,Angola</p>
-                <p>Engenherio informático ,Desenvolvedor Mobile, e Desenvolvedor  FullStack!</p>
+                <p>{user.bio}</p>
                 </div>
 
             </div>

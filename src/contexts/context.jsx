@@ -3,6 +3,7 @@ import api from "../api/api"
 import { useCreateUserWithEmailAndPassword ,useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import {auth} from "../firebase/config"
 
+import {toast} from "react-toastify"
 export const NotificacaoContext=createContext();
 export const NewsContexts=createContext();
 export const UserContext=createContext()
@@ -10,8 +11,15 @@ export const UserContext=createContext()
 export const AppContext=({children})=>{
     const [news,setNews]=useState([]);
     const [notificacao,setNotificacao]=useState(0);
-    const [userLogin,setUserLogin]=useState()
-    const [usuario,setUsuario]=useState(null)
+    const [userLogin,setUserLogin]=useState("")
+    const [author,setAuthor]=useState("")
+
+
+    async function logOut(){
+      localStorage.clear();
+      toast("Esperamos por você!")
+    }
+
 
     const [
       createUserWithEmailAndPassword,
@@ -34,6 +42,10 @@ export const AppContext=({children})=>{
     }
 
     const Postnews= async(title,content)=>{
+
+     
+      console.log("id do novo usuario",author.id)
+
         if(!title || !content){
           alert("os campos estão vazios")
           return;
@@ -44,7 +56,7 @@ export const AppContext=({children})=>{
           content:content
         },{
           headers:{
-            "author_id":"656f7bf22575b549bb3a4b58"
+            "author_id":`${author.id}`
           }
         }).then(()=>{
           console.log("ok")
@@ -60,32 +72,28 @@ async function LogIn(email,password){
   try {
     await signInWithEmailAndPassword(email,password)
     .then( async (usercredential)=>{
-
       await api.get(`/authors/user/${email}`)
       .then( async (response)=>{
         const data=response.data.user
         const user={
-          id:usercredential.user.uid,
+          id:data._id,
+          uid:usercredential.user.uid,
           name:data.name,
+          bio:data.bio,
           email:usercredential.user.email,
           token:await usercredential.user.getIdToken((t)=>t)
         }
-
         const getUserLocal=localStorage.getItem("tokens");
         const userToken=JSON.parse(getUserLocal);
-
         if(!userToken){
-          localStorage.setItem("tokens",JSON.stringify(user))
-         return console.log("foi criado um novo token",userToken)
+           localStorage.setItem("tokens",JSON.stringify(user))
+          const userT=await JSON.parse(getUserLocal);
+          console.log("foi criado um novo token",userT)
+          setUserLogin(user)
         }
-        console.log("esse usuario já existe",userToken)
-        setUserLogin(userToken)
+        
       })
-        console.log("dados do loggin",user)
     })
-    
-    setUserLogin(true)
-    return alert("usuario logado")
     
   } catch (error) {
     console.log("erro ao fazer log",error)
@@ -124,7 +132,15 @@ async function Register(name,email,password){
     return(
         <NotificacaoContext.Provider value={{notificacao,setNotificacao}}>
                    <NewsContexts.Provider  value={{news,getAllNews}} >
-                   <UserContext.Provider value={{Postnews,userLogin,LogIn,Register,setUserLogin}}>
+                   <UserContext.Provider value={{
+                    Postnews,
+                    userLogin,LogIn,
+                    Register,
+                    setUserLogin,
+                    setAuthor,
+                    author,
+                    logOut
+                    }}>
                    {children}
                    </UserContext.Provider >
                    </NewsContexts.Provider>
