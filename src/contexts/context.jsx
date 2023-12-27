@@ -10,6 +10,7 @@ export const UserContext=createContext()
 
 export const AppContext=({children})=>{
     const [news,setNews]=useState([]);
+    const [post,setPost]=useState()
     const [notificacao,setNotificacao]=useState(0);
     const [userLogin,setUserLogin]=useState("")
     const [author,setAuthor]=useState("")
@@ -41,6 +42,20 @@ export const AppContext=({children})=>{
          setNotificacao(0+Number(todoPosts.length))
     }
 
+    async function  buscarMeusPosts(){
+      const getUserLocal=  localStorage.getItem("tokens");
+        const userToken= await JSON.parse(getUserLocal);
+     try {
+      await api.get(`/posts/author/posts/${String(userToken.id)}`)
+      .then((resposnse)=>{
+          console.log(resposnse.data)
+          let todosPost=resposnse.data.allPost
+          setPost(todosPost)
+      })
+     } catch (error) {
+      console.log({error:"erro ao pegar os meus post",error})
+     }
+    }
     const Postnews= async(title,content)=>{
 
      
@@ -80,6 +95,7 @@ async function LogIn(email,password){
           uid:usercredential.user.uid,
           name:data.name,
           bio:data.bio,
+          date:data.createdAt,
           email:usercredential.user.email,
           token:await usercredential.user.getIdToken((t)=>t)
         }
@@ -131,7 +147,7 @@ async function Register(name,email,password){
 
     return(
         <NotificacaoContext.Provider value={{notificacao,setNotificacao}}>
-                   <NewsContexts.Provider  value={{news,getAllNews}} >
+                   <NewsContexts.Provider  value={{news,getAllNews,buscarMeusPosts,post}} >
                    <UserContext.Provider value={{
                     Postnews,
                     userLogin,LogIn,

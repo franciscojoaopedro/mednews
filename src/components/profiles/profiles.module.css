@@ -1,0 +1,112 @@
+
+.Infobase{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    background-image: url("https://img.freepik.com/vetores-gratis/icones-de-midia-social_53876-89125.jpg?w=1380&t=st=1703685874~exp=1703686474~hmac=f22d8be81b4bde6d5608524cfda4f185945d0ecb732e4e8d6b1e50a1e5182c41")  ;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-clip: border-box;
+    border-radius: 8px;
+    height:150px;
+    position: relative;
+    box-shadow: 2px 2px 2px 2px rgba(4, 4, 4, 0.161);
+}
+
+.ContentAbsulute{
+    top: 20%;
+    width: 100%;
+    display: flex;
+    position: absolute;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.avatar_user{
+    width: 120px;
+    border: 2px #121212;
+}
+.avatar_user img{
+    border-radius: 50% ;
+    width: 100%;
+}
+.InfoPessoal{
+    width: 100%;
+    display: flex;
+    justify-content:center;
+    align-items: center;
+}
+.InfoPessoal h4{
+    color: #121212;
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.InfoPessoal span{
+    color: grey;
+    margin: 0px 10px;
+    font-weight: 300;
+    font-size: 18px;
+}
+
+/* Aside estilos */
+
+.aside{
+    padding: 10px;
+    margin-top: 20px;
+    flex-basis: 10%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    float: left;
+    flex-direction: column;
+    box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+}
+.Title_Perfil{
+margin-bottom: 25px;
+}
+.Title_Perfil h3{
+    font-size: 24px;
+    color: #121212;
+    font-weight: bold;
+}
+
+.Title_Sobre{
+    margin-bottom:5px;
+}
+.Title_Sobre h3{
+    font-size: 20px;
+    color: gray;
+    font-weight: 400;
+}
+.Title_Contacto{
+    margin-top: 25px;
+    margin-bottom: 5px;
+}
+.Title_Contacto h3{
+    font-size: 20px;
+    color: gray;
+    font-weight: 400;
+}
+.Icons_Profiler{
+    color: gray;
+    font-size: 24px;
+}
+
+.AsideProfileInfos{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 14px;
+}
+
+.AsideProfileInfos h4{
+    font-size: 20px;
+    color: #121212;
+}

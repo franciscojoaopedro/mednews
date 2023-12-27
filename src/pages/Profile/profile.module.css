@@ -1,0 +1,100 @@
+.Container{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 20px;
+    padding: 0px 20px;
+    height: auto;
+
+}
+
+
+.ContentePrincipal{
+    position: relative;
+    margin-top:9%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 5%;
+    gap: 5%;
+}
+
+
+/*Atividades*/
+.Atividades{
+    margin-top: 20px;
+    flex-basis: 70%;
+    box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    padding: 10px;
+}
+
+
+
+.AtividadeTitle{
+margin-bottom: 25px;
+
+}
+
+.AtividadeTitle h3{
+    font-size: 24px;
+    color: #121212;
+    font-weight: 600;
+
+}
+
+.OpcaoAtividade{
+padding: 10px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin-bottom: 20px;
+    box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    height: auto;
+
+}
+
+.BtnAtividade{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    margin: 5px 0px;
+}
+
+.btnPost,.btnComent{
+    border: none;
+    padding: 8px 20px;
+    background-color:#14b8a6 ;
+    border-radius: 8px;
+    color: #ffff;
+    font-weight: 400;
+    font-size: 18px;
+    cursor: pointer;
+    transition:  1s;
+}
+
+.btnComent:hover{
+    transform: scale(0.8);
+}
+.btnPost:hover{
+    transform: scale(0.8);
+}
+
+
+
+
+.flatList{
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+    width: 100%;
+    max-height: 70vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
