@@ -53,7 +53,7 @@ export const AppContext=({children})=>{
           setPost(todosPost)
       })
      } catch (error) {
-      console.log({error:"erro ao pegar os meus post",error})
+      console.log({messageError:"erro ao pegar os meus post",error})
      }
     }
     const Postnews= async(title,content)=>{
