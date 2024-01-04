@@ -84,7 +84,7 @@ const Home = () => {
                 hora={data.hora}
                 date={`${data.dia}/${data.mes}/${data.ano}`}
                />)
-           }).sort((element)=>element.createdAt)}
+           }).sort((element)=>element.createdAt===element.createdAt)}
           
         
            </div>

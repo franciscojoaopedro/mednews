@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 import { UserContext } from '../../contexts/context';
 import { ToastContainer, toast } from 'react-toastify';
 import {Navigate} from "react-router-dom"
-
+import Logo from "../../assets/Logo.svg"
 const SignIn = () => {
   const [password,setPassword]=useState("")
   const [email,setEmail]=useState("")
@@ -36,12 +36,14 @@ const SignIn = () => {
   return (
     <main>
      <ToastContainer
-     
      />
      <div className='sigin-in'>
         <div className='container-sigin-in'>
             <div className='title-sigin-in'>
-              <h2>Sign In</h2>
+              <div>
+                <img src={Logo} width={100} height={100} />
+              </div>
+              <h2>Entrar</h2>
             </div>
             <form>
                 <div className='input-area-sign-in'>
@@ -67,10 +69,10 @@ const SignIn = () => {
             </form>
 
             <div className='area-btn-entrar'>
-            <button type='submit' onClick={entrar}>Entrar</button>
-              <p>
-                <Link to={"/signup"} >Não tenho uma conta</Link>
-              </p>
+            <button className='btnEntrar' type='submit' onClick={entrar}>Entrar</button>
+              <button className='btnRegistar'>
+                <Link  to={"/signup"} >Não tenho uma conta</Link>
+              </button>
             </div>
 
             <div className='barra-de-contas'>
@@ -79,14 +81,14 @@ const SignIn = () => {
                 <hr className='hr-rigth'  />
             </div>
 
-            <div className='sign-in-optional'>
+            {/* <div className='sign-in-optional'>
               <Link>
               <FaGooglePlusG  size={24} color='red'/>
               </Link>
                   <Link>
              <FaFacebook size={24} color='#0284c7' />
                 </Link>
-            </div>
+            </div> */}
         </div>
     </div>
    </main>
